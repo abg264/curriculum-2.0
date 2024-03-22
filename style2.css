@@ -1,0 +1,33 @@
+
+[class^="btn-"] {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  @include size(100%, $btn-height);
+  max-width: $btn-width;
+  margin: 1rem auto;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+}
+
+.btn-0 {
+  btn-color: random-color($max:200);
+  btn-color-dark: shade($btn-color, 40%);
+  color: tint($btn-color);
+
+  &:before {
+    content: '';
+    @include absolute(0,0,0,0);
+    background-color: $btn-color-dark;
+    transform: translateX(-100%);
+  }
+
+  &:hover {
+    color: tint($btn-color, 75%);
+
+    &:before {
+      transform: translateX(0);
+    }
+  }
+}
+
